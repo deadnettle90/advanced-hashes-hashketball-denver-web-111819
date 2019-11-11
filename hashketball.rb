@@ -244,7 +244,7 @@ def winning_team(game)
   end
   max_team[:name]
 end
-p winning_team
+
 
 def player_with_longest_name
   
