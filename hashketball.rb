@@ -232,7 +232,7 @@ end
 
 def winning_team
   max_team = nil
-  game.each do |team, team_hash|
+  game_hash.each do |team, team_hash|
     sum = 0
     team_hash[:players].each do |player, player_hash|
       sum += player_hash[:stats][:points]
