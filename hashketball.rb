@@ -231,7 +231,7 @@ def most_points_scored
 end
 
 def winning_team
-  home_points = game_hash[:home][:players][:points].inject?
+  home_points = game_hash[:home][:players][:points].inject?(:+)
 end
 
 def player_with_longest_name
