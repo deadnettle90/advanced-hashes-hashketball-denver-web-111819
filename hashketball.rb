@@ -231,18 +231,15 @@ def most_points_scored
 end
 
 def winning_team
-  max_team = nil
-  game_hash.each do |team, team_hash|
-    sum = 0
-    team_hash[:players].each do |player, player_hash|
-      sum += player_hash[:stats][:points]
+   top_team = {}
+  game_hash.values.each do |team_info|
+    team_points = 0
+    team_info[:players].each do |player|
+      team_points += player[:points]
     end
-
-    team_hash[:sum] = sum
-    max_team ||= team_hash
-    max_team = team_hash if team_hash[:sum] > max_team[:sum]
+    top_team[team_info[:team_name]] = team_points
   end
-  max_team[:name]
+  top_team.key(top_team.values.max) 
 end
 
 
