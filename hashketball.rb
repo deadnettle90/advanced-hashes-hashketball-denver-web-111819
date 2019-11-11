@@ -257,6 +257,6 @@ end
 def longest_name_steals_a_ton?
   longest = {}
   game_hash.value.each do |team|
-    team[:players]
+    team[:players].each do ||
   end
 end
