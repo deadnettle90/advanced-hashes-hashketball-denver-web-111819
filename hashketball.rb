@@ -238,8 +238,6 @@ def winning_team
     team_name = game_hash[place][:team_name]
     team[:players].each do |player|
       points = player[:points]
-      team_points += points
-      end
     end
   end
 end
