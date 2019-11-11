@@ -261,5 +261,5 @@ def longest_name_steals_a_ton?
       player[:steals] = longest_steals[player[:player_name]]
   end
 end
-  steals = longest_steals.values
+  steals = longest_steals.values.max
 end
