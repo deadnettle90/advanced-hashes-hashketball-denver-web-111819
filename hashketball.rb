@@ -231,22 +231,24 @@ def most_points_scored
 end
 
 def winning_team
-  home_team = 0
-  away_team = 0
-  game_hash[:home][:players].each do |name, value|
-    home_team += value[:points]
-    game_hash[:away][:players].each do |name, value|
-    away_team += value[:points]
-      if home_team > away_team
-        game_hash[:home][:team_name]
-        elsif home_team < away_team
-        game_hash[:away][:team_name]
-      else
-        "It's a tie!"
+  away_total = 0
+  home_total = 0
+    game_hash[:away][:players].each do |name, stats|
+      away_total += stats[:points]
     end
-  end
+    game_hash[:home][:players].each do |name, stats|
+      home_total += stats[:points]
+    end
+    if away_total > home_total
+       game_hash[:away][:team_name]
+    elsif away_total < home_total
+       game_hash[:home][:team_name]
+    else
+      "It's a tie!"
+    end
 end
-end
+
+winning_team
 
 def player_with_longest_name
   
