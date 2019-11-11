@@ -244,7 +244,7 @@ def winning_team(game)
   end
   max_team[:name]
 end
-p team_with_most_points(game)
+p winning_team(game)
 
 def player_with_longest_name
   
