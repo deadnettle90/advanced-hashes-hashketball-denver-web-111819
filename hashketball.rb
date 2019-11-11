@@ -240,6 +240,7 @@ def winning_team
       points = player[:points]
     end
   end
+  return win_team
 end
 
 def player_with_longest_name
