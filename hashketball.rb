@@ -234,7 +234,7 @@ def winning_team
   home_points = game_hash[:home][:players][:points].inject?(:+)
   away_points = game_hash[:away][:players][:points].inject?(:+)
   if home_points > away_points
-    
+    puts the 
   end
 end
 
