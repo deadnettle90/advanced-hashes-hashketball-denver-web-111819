@@ -230,14 +230,29 @@ def most_points_scored
   return player
 end
 
-def winning_team
- home_points = game_hash[:home][:players][:points].inject(:+)
- away_points = game_hash[:away][:players][:points].inject(:+)
- if home_points > away_points
- puts “The home team wins #{home_points} to #{away_points}.”
- else
- puts “The away team wins #{away_points} to #{home_points}.”
- end
+def winning_team 
+  away = 0
+  home = 0
+    game_hash[:home].each do |player_name, player_data|
+      player_data.each do |key, value|
+    if key == :points 
+    home = home + value
+  end
+  end
+end
+  game_hash[:away].each do |player_name, player_data|
+    player_data.each do |key, value|
+      if key == :points
+    away = away + value
+  end
+  end
+  if away > home
+    return game_hash[:away][:team_name]
+  elsif home > away 
+  return game_hash[:home][:team_name]
+else return "They tied!"
+  end
+end
 end
 
 
