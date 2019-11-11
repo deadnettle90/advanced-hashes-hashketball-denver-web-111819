@@ -243,5 +243,6 @@ def winning_team
 end
 
 def player_with_longest_name
+  longest_name = []
   game_hash.each do ||
 end
