@@ -244,5 +244,5 @@ end
 
 def player_with_longest_name
   longest_name = []
-  game_hash.each do ||
+  game_hash.values.each do ||
 end
