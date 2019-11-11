@@ -231,15 +231,11 @@ def most_points_scored
 end
 
 def winning_team
-  winner = {}
-  game_hash.values.each do |team|
-    team_points = 0
-    team[:players].each do |player|
-      team_points += player[:points]
-    end
-    team_points = winner[team[:team_name]]
+  home_team = 0
+  away_team = 0
+  game_hash[:home][:players].each do |name, value|
+    home_team += value[:points]
   end
-  return winner.key(winner.values.max)
 end
 
 def player_with_longest_name
