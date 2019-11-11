@@ -230,22 +230,20 @@ def most_points_scored
   return player
 end
 
-def winning_team
-  home_team = 0
-  away_team = 0
-  game_hash[:home][:players].each do |name, value|
-    home_team += value[:points]
+def team_with_most_points(game)
+  max_team = nil
+  game.each do |team, team_hash|
+    sum = 0
+    team_hash[:players].each do |player, player_hash|
+      sum += player_hash[:stats][:points]
+    end
+
+    team_hash[:sum] = sum
+    max_team ||= team_hash
+    max_team = team_hash if team_hash[:sum] > max_team[:sum]
   end
-  game_hash[:away][:players].each do |name, value|
-    away_team += value[:points]
-  end
-  if home_team > away_team
-      game_hash[:home][:team_name]
-  elsif home_team < away_team
-      game_hash[:away][:team_name]
-  else
-      "It's a tie!"
-  end
+
+  max_team[:name]
 end
 
 
