@@ -254,7 +254,7 @@ def player_with_longest_name
   end
 end
 
-def longest_name_steals_a_ton?
+def long_name_steals_a_ton?
   longest_steals = {}
   game_hash.value.each do |team|
     team[:players].each do |player|
