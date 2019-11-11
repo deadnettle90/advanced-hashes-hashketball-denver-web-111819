@@ -235,7 +235,8 @@ def winning_team
   winner = ""
   game_hash.each do |place, team|
     team_points = 0
-    team = game_hash[place][:team_name].each do |score|
+    team = game_hash[place][:team_name]
+    .each do |score|
       score.sum |v|
     end
   end
