@@ -231,13 +231,15 @@ def most_points_scored
 end
 
 def winning_team
-  home_points = game_hash[:home][:players][:points].inject?(:+)
-  away_points = game_hash[:away][:players][:points].inject?(:+)
-  if home_points > away_points
-    puts "The home team wins with #{home_points}"
-  else
-    puts "The away team wins with #{away_points}"
+  winner = {}
+  game_hash.values.each do |team|
+    team_points = 0
+    team[:players].each do |player|
+      team_points += player[:points]
+    end
+    top_team[team[:team_name]] = team_points
   end
+  winner.key(winner.values.max)
 end
 
 def player_with_longest_name
