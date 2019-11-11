@@ -230,7 +230,7 @@ def most_points_scored
   return player
 end
 
-def team_with_most_points(game)
+def winning_team(game)
   max_team = nil
   game.each do |team, team_hash|
     sum = 0
@@ -242,7 +242,6 @@ def team_with_most_points(game)
     max_team ||= team_hash
     max_team = team_hash if team_hash[:sum] > max_team[:sum]
   end
-
   max_team[:name]
 end
 
