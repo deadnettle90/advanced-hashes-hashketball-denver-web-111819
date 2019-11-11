@@ -237,7 +237,7 @@ def winning_team
     team[:players].each do |player|
       team_points += player[:points]
     end
-    top_team[team[:team_name]] = team_points
+    team_points = winner[team[:team_name]]
   end
   winner.key(winner.values.max)
 end
